@@ -6,12 +6,8 @@ class FilmeCreate(BaseModel):
     ano: int
     genero: str
 
-class FilmeResponse(BaseModel):
+class FilmeResponse(FilmeCreate):
     id: int
-    titulo: str
-    diretor: str
-    ano: int
-    genero: str
     
     class Config:
         from_attributes = True
