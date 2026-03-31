@@ -3,7 +3,7 @@
 API REST para gerenciamento de filmes, desenvolvida com FastAPI, SQLAlchemy e Docker.
 
 ## Tecnologias Utilizadas
-- Python 3.11
+- Python 3.14
 - FastAPI
 - SQLAlchemy (ORM)
 - SQLite (persistência em arquivo)
