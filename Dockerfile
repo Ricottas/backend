@@ -1,10 +1,18 @@
-﻿FROM python:3.11-slim
+﻿FROM python:3.14-slim
 
 WORKDIR /app
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# Instalar Poetry de forma tradicional via pip
+RUN pip install poetry
 
+# Copiar arquivos de configuração
+COPY pyproject.toml poetry.lock* ./
+
+# Instalar dependências
+RUN poetry config virtualenvs.create false \
+    && poetry install --no-interaction --no-ansi --no-root
+
+# Copiar código
 COPY ./app /app/app
 
 EXPOSE 8000
